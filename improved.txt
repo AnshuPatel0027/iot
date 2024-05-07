@@ -1,0 +1,201 @@
+3 LED with Push Button
+int state=0;
+void setup()
+{
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(2, OUTPUT);
+}
+void loop()
+{
+	state=digitalRead(2);
+  if(state==LOW){
+  digitalWrite(13,LOW);
+  digitalWrite(12,LOW);
+  digitalWrite(11,LOW);
+  }
+  else
+  {
+  	digitalWrite(13,HIGH);
+    digitalWrite(12,LOW);
+    digitalWrite(11,LOW);
+    delay(1000);
+    
+    digitalWrite(13,LOW);
+    digitalWrite(12,HIGH);
+    digitalWrite(11,LOW);
+    delay(1000);
+    
+    digitalWrite(13,LOW);
+    digitalWrite(12,LOW);
+    digitalWrite(11,HIGH);
+    delay(1000);
+  }
+}
+
+
+
+
+
+
+
+DC Motor
+void setup()
+{
+pinMode(11,OUTPUT);
+ pinMode(9,OUTPUT);
+}
+void loop()
+{
+digitalWrite(11,LOW);
+ digitalWrite(9,HIGH);
+ delay(2000);
+ digitalWrite(9,LOW);
+ digitalWrite(11,HIGH);
+ delay(2000);
+}
+
+
+
+
+
+
+
+Distance Sensor
+int input = 0;
+long readUltrasonicDistance(int triggerPin, int echoPin)
+{
+ pinMode(triggerPin, OUTPUT); 
+ digitalWrite(triggerPin, LOW);
+ delayMicroseconds(2);
+ digitalWrite(triggerPin, HIGH);
+ delayMicroseconds(10);
+ digitalWrite(triggerPin, LOW);
+ pinMode(echoPin, INPUT);
+ return pulseIn(echoPin, HIGH);
+ }
+void setup()
+{
+ Serial.begin(9600);
+}
+void loop()
+{
+ input = 0.01723 * readUltrasonicDistance(3, 2);
+ Serial.println(input);
+ delay(10); 
+}
+
+
+
+
+
+Body Temperature
+int input = 0;
+void setup()
+{
+ pinMode(2, INPUT);
+ Serial.begin(9600);
+}
+void loop()
+{
+ input = digitalRead(2);
+ Serial.println(input);
+ delay(10); 
+}
+Control Relay
+void setup()
+{
+ pinMode(4, OUTPUT);
+}
+void loop()
+{
+ digitalWrite(4, HIGH);
+ delay(1000); // Wait for 1000 millisecond(s)
+ digitalWrite(4, LOW);
+ delay(1000); // Wait for 1000 millisecond(s)
+}
+RGB Light
+void setup()
+{
+ pinMode(8, OUTPUT);
+ pinMode(2, OUTPUT);
+ pinMode(4, OUTPUT);
+}
+void loop()
+{
+ digitalWrite(8, HIGH);
+ digitalWrite(2, LOW);
+ digitalWrite(4, LOW);
+ delay(1000); // Wait for 1000 millisecond(s)
+ digitalWrite(8, LOW);
+ digitalWrite(2, HIGH);
+ digitalWrite(4, LOW);
+ delay(1000); // Wait for 1000 millisecond(s)
+ digitalWrite(8, LOW);
+ digitalWrite(2, LOW);
+ digitalWrite(4, HIGH);
+ delay(1000); // Wait for 1000 millisecond(s)
+}
+
+
+
+
+
+
+Relay
+void setup()
+{
+ pinMode(4, OUTPUT);
+}
+void loop()
+{
+ digitalWrite(4, HIGH);
+ delay(1000); // Wait for 1000 millisecond(s)
+ digitalWrite(4, LOW);
+ delay(1000); // Wait for 1000 millisecond(s)
+}
+
+
+
+
+LED with Push Button
+void setup()
+{
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+void loop()
+{
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000); // Wait for 1000 millisecond(s)
+}
+
+
+
+3 LED Simultaneously
+// C++ code
+//
+void setup()
+{
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(8, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(13, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(13, LOW);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(12, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(12, LOW);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(8, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(8, LOW);
+  delay(1000); // Wait for 1000 millisecond(s)
+}
